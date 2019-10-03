@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Calendar.Common.Events;
 
-namespace Calendar.Common.Events
+namespace Calendar.DAL.Events
 {
     public interface IEventRepository
     {

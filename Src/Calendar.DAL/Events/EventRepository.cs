@@ -6,6 +6,12 @@ namespace Calendar.DAL.Events
 {
     public class EventRepository : IEventRepository
     {
+        private readonly CalendarContext _dbContext;
+        public EventRepository(CalendarContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+        
         public int AddEvent(CalendarEvent calendarEvent)
         {
             throw new System.NotImplementedException();
