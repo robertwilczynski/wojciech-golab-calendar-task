@@ -2,8 +2,9 @@ namespace Calendar.Common.Events
 {
     public enum RecurrenceType
     {
-        Infinite = 0,
-        Occurrence = 1,
-        TillDate = 2,
+        None = 0,
+        Infinite = 1,
+        Occurrence = 2,
+        TillDate = 3,
     }
 }

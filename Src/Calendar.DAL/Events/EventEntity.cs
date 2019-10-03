@@ -13,8 +13,8 @@ namespace Calendar.DAL.Events
         public bool IsAllDay { get; set; }
         public FrequencyType FrequencyType { get; set; }
         public RecurrenceType RecurrenceType { get; set; }
-        public int Interval { get; set; }
+        public int? Interval { get; set; }
         public int? Occurences { get; set; }
-        public Days Days { get; set; } 
+        public Days? Days { get; set; } 
     }
 }

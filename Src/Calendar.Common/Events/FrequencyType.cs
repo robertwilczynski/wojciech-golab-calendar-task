@@ -2,9 +2,10 @@ namespace Calendar.Common.Events
 {
     public enum FrequencyType
     {
-        Daily = 0,
-        Weekly = 1,
-        Monthly = 2,
-        Yearly = 3,
+        None = 0,
+        Daily = 1,
+        Weekly = 2,
+        Monthly = 3,
+        Yearly = 4,
     }
 }
