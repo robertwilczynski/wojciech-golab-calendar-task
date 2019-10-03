@@ -11,5 +11,6 @@
   </ItemGroup>
   <ItemGroup>
       <ProjectReference Include="..\Calendar.Common\Calendar.Common.csproj" />
+      <ProjectReference Include="..\Calendar.DAL\Calendar.DAL.csproj" />
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Calendar.DAL.Events;
 
 namespace Calendar.DAL.Extensions
 {
@@ -14,6 +15,7 @@ namespace Calendar.DAL.Extensions
                 services.AddDbContext<CalendarContext>(options => options.UseNpgsql(connectionString));
                 services.Configure<DbOptions>(options => options.ConnectionString = connectionString);
                 services.AddOptions();
+                services.AddTransient<IEventRepository, EventRepository>();
             });
             return builder;
        }

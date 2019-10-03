@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Calendar.DAL.Extensions;
 
 namespace Calendar
 {
@@ -19,6 +20,7 @@ namespace Calendar
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseDatabase("ConnectionString")
                 .UseStartup<Startup>();
     }
 }
