@@ -15,7 +15,6 @@ namespace Calendar.DAL
         public DbSet<CalendarEntity> Calendars { get; set; }
         public DbSet<EventEntity> Events { get; set; }
         public DbSet<EventExceptionEntity> EventExceptions { get; set; }
-        public DbSet<RecurrencePatternEntity> RecurrencePatterns { get; set; } 
 
         public CalendarContext()
         {
