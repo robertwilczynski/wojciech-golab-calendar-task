@@ -1,4 +1,4 @@
-namespace Calendar.DTO.Events
+namespace Calendar.Common.Events
 {
     public enum FrequencyType
     {

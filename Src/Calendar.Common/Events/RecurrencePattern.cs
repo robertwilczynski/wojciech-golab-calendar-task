@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Calendar.DTO.Events
+namespace Calendar.Common.Events
 {
     public class RecurrencePattern
     {

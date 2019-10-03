@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Calendar.DTO.Events;
+using Calendar.Common.Events;
 
 namespace Calendar.DAL.Events
 {
@@ -12,6 +12,6 @@ namespace Calendar.DAL.Events
         public int Interval { get; set; }
         public int? Occurences { get; set; }
         public DateTime? EndDate { get; set; } 
-        public List<DayOfWeek> Days { get; set; } 
+        public Days Days { get; set; } 
     }
 }
