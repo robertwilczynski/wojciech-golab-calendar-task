@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Calendar.Events
+namespace Calendar.DTO.Events
 {
     public class CalendarEvent
     {

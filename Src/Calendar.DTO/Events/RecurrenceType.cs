@@ -1,4 +1,4 @@
-namespace Calendar.Events
+namespace Calendar.DTO.Events
 {
     public enum RecurrenceType
     {

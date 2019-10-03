@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Calendar.Events
+namespace Calendar.DTO.Events
 {
     public class RecurrencePattern
     {
@@ -11,6 +11,5 @@ namespace Calendar.Events
         public int? Occurences { get; set; }
         public DateTime? EndDate { get; set; } 
         public List<DayOfWeek> Days { get; set; } 
-        
     }
 }
