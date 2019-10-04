@@ -9,7 +9,7 @@ namespace Calendar.Events
         public int CalendarId { get; set; }
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public int Duration { get; set; }
         public bool IsAllDay { get; set; }
         public FrequencyType FrequencyType { get; set; }

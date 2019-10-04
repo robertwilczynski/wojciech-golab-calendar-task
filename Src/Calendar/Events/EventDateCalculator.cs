@@ -6,20 +6,17 @@ namespace Calendar.Events
 {
     public class EventDateCalculator : IEventDateCalculator
     {
-        public DateTime CalculateEventEndDate(DateTime endDate, RecurrenceType recurrenceType, DateTime startDate, int interval, 
+        public DateTime CalculateEventEndDate(DateTime? endDate, RecurrenceType recurrenceType, DateTime startDate, int interval, 
                                                 int? occurences, FrequencyType frequencyType, List<DayOfWeek> days)
         {
-            var date = endDate;
-            if (recurrenceType != RecurrenceType.None)
+            switch (recurrenceType)
             {
-                switch (recurrenceType)
-                {
-                    case RecurrenceType.Infinite: endDate = DateTime.MaxValue; break;
-                    case RecurrenceType.Occurrence: endDate = CalculateOccurrenceEndDate(startDate, interval, occurences.Value, frequencyType, days); break;
-                    case RecurrenceType.TillDate: break;
-                }
+                case RecurrenceType.Infinite: return DateTime.MaxValue;
+                case RecurrenceType.Occurrence: return CalculateOccurrenceEndDate(startDate, interval, occurences.Value, frequencyType, days);
+                case RecurrenceType.TillDate:
+                case RecurrenceType.None: 
+                default: return endDate.Value;
             }
-            return date;
         }
 
         private DateTime CalculateOccurrenceEndDate(DateTime startDate, int interval, int occurrences, FrequencyType frequencyType, List<DayOfWeek> days)
