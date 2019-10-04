@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Calendar.Events;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Calendar.Controllers
@@ -10,6 +11,12 @@ namespace Calendar.Controllers
     [ApiController]
     public class EventsController : ControllerBase
     {
+        private readonly IEventsService _eventsService;
+        public EventsController(IEventsService eventsService)
+        {
+            _eventsService = eventsService;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -26,8 +33,9 @@ namespace Calendar.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] CreateEventRequest createEventRequest)
         {
+            _eventsService.CreateEvent(createEventRequest);
         }
 
         // PUT api/values/5
