@@ -6,7 +6,7 @@ namespace Calendar.Events
 {
     public interface IEventDateCalculator
     {
-        DateTime CalculateEventEndDate(DateTime? endDate, RecurrenceType recurrenceType, DateTime startDate, int interval, 
-                                                int? occurences, FrequencyType frequencyType, List<DayOfWeek> days);
+        DateTime CalculateEventEndDate(DateTime startDate, DateTime? endDate, RecurrenceType recurrenceType, int interval, 
+                                                int duration, int? occurences, FrequencyType frequencyType, List<DayOfWeek> days);
     }
 }

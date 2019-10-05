@@ -24,8 +24,8 @@ namespace Calendar.Events
             {
                 throw new ValidationException();
             }
-            var endDate = _eventDateCalculator.CalculateEventEndDate(request.EndDate, request.RecurrenceType, request.StartDate, request.Interval, 
-                                                request.Occurences, request.FrequencyType, request.Days);
+            var endDate = _eventDateCalculator.CalculateEventEndDate(request.StartDate, request.EndDate, request.RecurrenceType,  request.Interval, 
+                                                request.Duration, request.Occurences, request.FrequencyType, request.Days);
             return _eventRepository.AddEvent(new CalendarEvent
             {
                 Duration = request.Duration,
