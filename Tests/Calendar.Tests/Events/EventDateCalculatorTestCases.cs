@@ -56,5 +56,74 @@ namespace Calendar.Tests.Events
             }
 
         }
+        public static IEnumerable DailyOccurenceTestCases
+        {
+            get
+            {
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    1,
+                    120,
+                    12,
+                    new DateTime(2019, 10, 12, 12, 0, 0)).SetName("Everyday for 12 days");
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    1,
+                    120,
+                    1,
+                    new DateTime(2019, 10, 1, 12, 0, 0)).SetName("Only once");
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    2,
+                    120,
+                    6,
+                    new DateTime(2019, 10, 11, 12, 0, 0)).SetName("Every second day, 6 times");
+            }
+
+        }
+        public static IEnumerable MonthlyOccurenceTestCases
+        {
+            get
+            {
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    1,
+                    120,
+                    6,
+                    new DateTime(2020, 3, 1, 12, 0, 0)).SetName("Every month, 6 times");
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    1,
+                    120,
+                    1,
+                    new DateTime(2019, 10, 1, 12, 0, 0)).SetName("Every month once");
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    3,
+                    120,
+                    5,
+                    new DateTime(2020, 10, 1, 12, 0, 0)).SetName("Every third month, 5 times");
+            }
+
+        }
+        public static IEnumerable YearlyOccurenceTestCases
+        {
+            get
+            {
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    1,
+                    120,
+                    1,
+                    new DateTime(2019, 10, 1, 12, 0, 0)).SetName("Once a year, one time");
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    4,
+                    120,
+                    2,
+                    new DateTime(2023, 10, 1, 12, 0, 0)).SetName("Every 4 years, twice");
+            }
+
+        }
     }
 }

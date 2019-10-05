@@ -24,7 +24,7 @@ namespace Calendar.Events
             var endDate = startDate.AddMinutes(duration);
             switch (frequencyType)
             {
-                case FrequencyType.Daily: endDate = endDate.AddDays(occurrences * interval); break;
+                case FrequencyType.Daily: endDate = endDate.AddDays((occurrences - 1) * interval); break;
                 case FrequencyType.Weekly:
                 {
                     var daysInLastWeek = occurrences <= days.Count ? occurrences : (occurrences % days.Count == 0 ? days.Count : occurrences % days.Count);
@@ -42,8 +42,8 @@ namespace Calendar.Events
                     } 
                     break;
                 }
-                case FrequencyType.Monthly: endDate = endDate.AddMonths(occurrences * interval); break;
-                case FrequencyType.Yearly: endDate = endDate.AddYears(occurrences * interval); break;
+                case FrequencyType.Monthly: endDate = endDate.AddMonths((occurrences - 1) * interval); break;
+                case FrequencyType.Yearly: endDate = endDate.AddYears((occurrences - 1) * interval); break;
             }
             return endDate;
         }
