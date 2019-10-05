@@ -25,7 +25,23 @@ namespace Calendar.Events
             switch (frequencyType)
             {
                 case FrequencyType.Daily: endDate = endDate.AddDays(occurrences * interval); break;
-                case FrequencyType.Weekly: endDate = endDate.AddDays(7 * interval * (occurrences - 1)); break;
+                case FrequencyType.Weekly:
+                {
+                    var daysInLastWeek = occurrences <= days.Count ? occurrences : (occurrences % days.Count == 0 ? days.Count : occurrences % days.Count);
+                    var amountOfWeeks = (occurrences - daysInLastWeek)/days.Count;
+                    endDate = endDate.AddDays((7 * interval) * (amountOfWeeks));                    
+                    var date = endDate;
+                    while (daysInLastWeek > 0)
+                    {
+                        if (days.Contains(date.DayOfWeek))
+                        {
+                            endDate = date;
+                            daysInLastWeek--;        
+                        }
+                        date = date.AddDays(1);
+                    } 
+                    break;
+                }
                 case FrequencyType.Monthly: endDate = endDate.AddMonths(occurrences * interval); break;
                 case FrequencyType.Yearly: endDate = endDate.AddYears(occurrences * interval); break;
             }

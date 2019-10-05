@@ -17,21 +17,42 @@ namespace Calendar.Tests.Events
                     120,
                     7,
                     new List<DayOfWeek>{ DayOfWeek.Tuesday, DayOfWeek.Wednesday },
-                    new DateTime(2019, 10, 22, 12, 0, 0));
-                yield return new TestCaseData(
-                    new DateTime(2019, 10, 2, 10, 0, 0), 
-                    1,
-                    120,
-                    7,
-                    new List<DayOfWeek>{ DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday },
-                    new DateTime(2019, 10, 16, 12, 0, 0));  
+                    new DateTime(2019, 10, 22, 12, 0, 0)).SetName("When interval is not divided by the days count without the rest");
                 yield return new TestCaseData(
                     new DateTime(2019, 10, 1, 10, 0, 0), 
                     1,
                     120,
                     3,
                     new List<DayOfWeek>{ DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday },
-                    new DateTime(2019, 10, 4, 12, 0, 0));    
+                    new DateTime(2019, 10, 3, 12, 0, 0)).SetName("When amount of occurrences is less than days");    
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    1,
+                    120,
+                    1,
+                    new List<DayOfWeek>{ DayOfWeek.Tuesday },
+                    new DateTime(2019, 10, 1, 12, 0, 0)).SetName("When there is only one occurrence");    
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    1,
+                    120,
+                    10,
+                    new List<DayOfWeek>{ DayOfWeek.Tuesday, DayOfWeek.Wednesday },
+                    new DateTime(2019, 10, 30, 12, 0, 0)).SetName("When interval is divided by days without the rest");
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    1,
+                    120,
+                    2,
+                    new List<DayOfWeek>{ DayOfWeek.Tuesday, DayOfWeek.Wednesday },
+                    new DateTime(2019, 10, 2, 12, 0, 0)).SetName("When occurrences are only in one week");       
+                yield return new TestCaseData(
+                    new DateTime(2019, 10, 1, 10, 0, 0), 
+                    2,
+                    120,
+                    4,
+                    new List<DayOfWeek>{ DayOfWeek.Tuesday, DayOfWeek.Wednesday },
+                    new DateTime(2019, 10, 16, 12, 0, 0)).SetName("When interval is every 2 weeks");                            
             }
 
         }
