@@ -19,12 +19,17 @@ namespace Calendar.Events
             }
         }
 
+        private int IncludeFirstWeek(int occurences)
+        {
+            return occurences - 1;
+        }
+
         private DateTime CalculateOccurrenceEndDate(DateTime startDate, int duration, int interval, int occurrences, FrequencyType frequencyType, List<DayOfWeek> days)
         {
             var endDate = startDate.AddMinutes(duration);
             switch (frequencyType)
             {
-                case FrequencyType.Daily: endDate = endDate.AddDays((occurrences - 1) * interval); break;
+                case FrequencyType.Daily: endDate = endDate.AddDays(IncludeFirstWeek(occurrences) * interval); break;
                 case FrequencyType.Weekly:
                 {
                     var daysInLastWeek = occurrences <= days.Count ? occurrences : (occurrences % days.Count == 0 ? days.Count : occurrences % days.Count);
@@ -42,8 +47,8 @@ namespace Calendar.Events
                     } 
                     break;
                 }
-                case FrequencyType.Monthly: endDate = endDate.AddMonths((occurrences - 1) * interval); break;
-                case FrequencyType.Yearly: endDate = endDate.AddYears((occurrences - 1) * interval); break;
+                case FrequencyType.Monthly: endDate = endDate.AddMonths(IncludeFirstWeek(occurrences) * interval); break;
+                case FrequencyType.Yearly: endDate = endDate.AddYears(IncludeFirstWeek(occurrences) * interval); break;
             }
             return endDate;
         }
